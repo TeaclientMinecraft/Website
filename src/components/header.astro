@@ -19,11 +19,12 @@ wiki: "/wiki",
         width="96"
         height="96"
         alt="TeaClient Logo"
-        loading="eager"
+				loading="eager"
+				class=""
         id="logo"
       />
     </a>
-    <a href="/" class="text-white hover:text-purple-600">Tea Client</a>
+    <a href="/" class="bg-gradient-to-r from-white to-purple-600 text-transparent bg-clip-text">TeaClient</a>
   </div>
   <input id="menu-toggle" class="hidden" type="checkbox" />
   <label
@@ -33,71 +34,59 @@ wiki: "/wiki",
     <div class="menu-button before:mt-[-8px] after:mt-[8px]"></div>
   </label>
   <ul class="menu flex flex-row list-none m-0 p-0 *:mx-4 *:overflow-hidden">
-    <li>
-      <input
-        type="checkbox"
-        class="checkbox absolute opacity-0"
-        id="checkbox"
-      />
-      <label
-        for="checkbox"
-        class="checkbox-label bg-[#2e2e2e] w-[50px] h-[26px] rounded-[50px] relative p-[5px] cursor-pointer flex justify-between items-center"
-        aria-label="Toggle theme"
-      >
-        <i class="fas text-[f1c40f]"></i>
-        <i class="fas text-[#f39c12]"></i>
-        <span class="ball"></span>
-        <span
-          class="sr-only absolute w-[1px] h-[1px] p-0 m-[-1px] overflow-hidden border-0"
-          >Toggle theme</span
-        >
-      </label>
-    </li>
+    <!-- <li> -->
+    <!--   <input -->
+    <!--     type="checkbox" -->
+    <!--     class="checkbox absolute opacity-0" -->
+    <!--     id="checkbox" -->
+    <!--   /> -->
+    <!--   <label -->
+    <!--     for="checkbox" -->
+    <!--     class="checkbox-label bg-[#2e2e2e] w-[50px] h-[26px] rounded-[50px] relative p-[5px] cursor-pointer flex justify-between items-center" -->
+    <!--     aria-label="Toggle theme" -->
+    <!--   > -->
+    <!--     <i class="fas text-[f1c40f]"></i> -->
+    <!--     <i class="fas text-[#f39c12]"></i> -->
+    <!--     <span class="ball"></span> -->
+    <!--     <span -->
+    <!--       class="sr-only absolute w-[1px] h-[1px] p-0 m-[-1px] overflow-hidden border-0" -->
+    <!--       >Toggle theme</span -->
+    <!--     > -->
+    <!--   </label> -->
+    <!-- </li> -->
     <li><a href="/">HOME</a></li>
     <li><a href=`${links.store}`>STORE</a></li>
     <li><a href=`${links.wiki}`>WIKI</a></li>
     <li><a href=`${links.news}`>NEWS</a></li>
-    <li><a class="font-bold bg-[#00000084] bg-[#6e2bec] rounded-lg 2xl:hover:bg-[#9359ff] ignore-a" href=`${links.download}`>DOWNLOAD</a></li>
+    <li><a class="rounded-lg bg-purple-700 hover:bg-purple-600 ignore-a" href=`${links.download}`>DOWNLOAD</a></li>
   </ul>
 </section>
 
-<div class="page-background">
-  <img
-    class="fixed top-0 left-0 w-full h-full object-cover object-center -z-10 pointer-events-none [-webkit-user-drag: none] select-none"
-    id="background-image"
-    src="/background/1.webp"
-    alt="The background"
-    loading="lazy"
-    decoding="async"
-  />
-</div>
-
 <script>
-  const button = document.querySelector(".checkbox") as HTMLInputElement;
+	// const button = document.querySelector(".checkbox") as HTMLInputElement;
   function switchTheme() {
     const currentTheme = document.documentElement.getAttribute("data-theme");
     const newTheme = currentTheme === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
-    button.checked = newTheme === "dark";
+		// button.checked = newTheme === "dark";
   }
   document.addEventListener("DOMContentLoaded", () => {
     const currentTheme = localStorage.getItem("theme");
     if (currentTheme) {
       document.documentElement.setAttribute("data-theme", currentTheme);
-      button.checked = currentTheme === "dark";
+			//button.checked = currentTheme === "dark";
       return;
     }
     document.documentElement.setAttribute("data-theme", "dark");
     localStorage.setItem("theme", "dark");
-    button.checked = true;
+		// button.checked = true;
   });
-  button.addEventListener("click", switchTheme);
+	// button.addEventListener("click", switchTheme);
 </script>
 
 <style>
-  /* Mobile Button */
-  .menu-button,
+	/** .menu-button,
   .menu-button::before,
   .menu-button::after {
     @apply block absolute h-[4px] w-[30px] rounded bg-white;
@@ -160,7 +149,7 @@ wiki: "/wiki",
   }
 
   .menu li:not(.download) a {
-    @apply text-[var(--navBar-Items)] p-2 font-bold text-lg;
+    @apply text-white p-2;
     text-decoration: none;
   }
   .checkbox-label .ball {
@@ -179,5 +168,6 @@ wiki: "/wiki",
     background-color: #101010;
     box-shadow: 0px 0px 4px white;
     transform: translateX(24px);
-  }
+	}
+**/
 </style>
