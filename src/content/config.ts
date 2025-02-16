@@ -30,8 +30,12 @@ const authors = defineCollection({
 	}),
 });
 
+const policies = defineCollection({
+	type: "content"
+})
+
 const docs = defineCollection({
 	schema: docsSchema(),
 });
 
-export const collections = { news, authors, docs };
+export const collections = { news, authors, docs, policies };
