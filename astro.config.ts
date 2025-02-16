@@ -1,6 +1,6 @@
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import metaTags from "astro-meta-tags";
 import icon from "astro-icon";
 import { defineConfig } from "astro/config";
@@ -20,10 +20,6 @@ export default defineConfig({
 			filter: (page) =>
 				page !== `${import.meta.env.SITE}/staffhandbook-13-4-24`,
 			customPages: ["docs.teaclient.net"],
-		}),
-		tailwind({
-			nesting: true,
-			applyBaseStyles: true,
 		}),
 		starlight({
 			title: "TeaClient",
@@ -81,6 +77,7 @@ export default defineConfig({
 				"@": "src/",
 			},
 		},
+		plugins: [tailwindcss()],
 		build: {
 			minify: true,
 			sourcemap: false,
